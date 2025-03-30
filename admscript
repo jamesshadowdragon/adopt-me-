@@ -1,4 +1,4 @@
--- Improved GUI with all requested features
+
 local UIS = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 local SoundService = game:GetService("SoundService")
@@ -7,11 +7,11 @@ local player = game:GetService("Players").LocalPlayer
 if not player then return end  -- Ensure player exists
 local playerGui = player:FindFirstChild("PlayerGui") or player:WaitForChild("PlayerGui")
 
--- Create ScreenGui
+
 local stealer_gui = Instance.new("ScreenGui")
 stealer_gui.Parent = playerGui
 
--- Create Main Frame
+
 local frame = Instance.new("Frame", stealer_gui)
 frame.Size = UDim2.new(0, 300, 0, 200)
 frame.Position = UDim2.new(0.5, -150, 0.5, -100)
@@ -22,7 +22,6 @@ frame.Visible = false -- Hidden initially
 local uiCorner = Instance.new("UICorner", frame)
 uiCorner.CornerRadius = UDim.new(0, 10)
 
--- Title Label
 local title = Instance.new("TextLabel", frame)
 title.Size = UDim2.new(1, 0, 0, 50)
 title.Text = "Shadow Scripting Pet Spawner"
@@ -37,7 +36,7 @@ title.TextScaled = true
 title.TextYAlignment = Enum.TextYAlignment.Center
 title.TextXAlignment = Enum.TextXAlignment.Center
 
--- Input Box
+
 local text_box = Instance.new("TextBox", frame)
 text_box.Size = UDim2.new(1, 0, 0, 50)
 text_box.Position = UDim2.new(0, 0, 0, 50)
@@ -53,14 +52,14 @@ text_box.TextScaled = true
 text_box.TextYAlignment = Enum.TextYAlignment.Center
 text_box.TextXAlignment = Enum.TextXAlignment.Center
 
--- Spawn Button
+
 local button = Instance.new("TextButton", frame)
 button.Size = UDim2.new(0, 100, 0, 30)
 button.Position = UDim2.new(0.5, -50, 1, -40)
 button.Text = "Spawn Pet"
 button.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 
--- Button Click Sound
+
 local clickSound = Instance.new("Sound", SoundService)
 clickSound.SoundId = "rbxassetid://12345678" -- Replace with actual sound ID
 
